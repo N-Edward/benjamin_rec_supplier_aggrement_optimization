@@ -119,7 +119,8 @@ model.total_cost = pyo.Objective(expr=energy_cost(model), sense=pyo.minimize)
 # ----------------------------
 # 5) Solve with Pyomo Solver
 # ----------------------------
-solver = pyo.SolverFactory("glpk")  # change to highs/gurobi/cplex if available
+
+solver = pyo.SolverFactory("gurobi")  # change to highs/gurobi/cplex if available
 result = solver.solve(model, tee=True)
 
 print(result.solver.status, result.solver.termination_condition)
